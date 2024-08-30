@@ -1,7 +1,8 @@
-package be.ucll.da.hospitalmonolith.api;
+package be.ucll.da.hospitalmonolith.adapters.rest;
 
-import be.ucll.da.hospitalmonolith.business.Doctor;
-import be.ucll.da.hospitalmonolith.business.DoctorService;
+import be.ucll.da.hospitalmonolith.domain.doctor.Doctor;
+import be.ucll.da.hospitalmonolith.domain.doctor.DoctorRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,17 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/doctor")
+@Transactional
 public class DoctorController {
 
-    private DoctorService doctorService;
-
     @Autowired
-    public DoctorController(DoctorService doctorService) {
-        this.doctorService = doctorService;
-    }
+    private DoctorRepository doctorRepository;
 
     @PostMapping
     public Doctor createDoctor(@RequestBody Doctor doctor) {
-        return doctorService.createDoctor(doctor);
+        return doctorRepository.save(doctor);
     }
 }

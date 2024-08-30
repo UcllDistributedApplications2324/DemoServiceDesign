@@ -1,4 +1,4 @@
-package be.ucll.da.hospitalmonolith.business;
+package be.ucll.da.hospitalmonolith.domain.hospital;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -16,8 +16,8 @@ public class Room {
     @JsonBackReference
     private Hospital hospital;
 
-    @OneToMany
-    private List<Appointment> appointments;
+    @ElementCollection
+    private List<Long> appointmentIds;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Room {
         this.hospital = hospital;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
+    public List<Long> getAppointmentIds() {
+        return appointmentIds;
     }
 
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
+    public void setAppointmentIds(List<Long> appointmentIds) {
+        this.appointmentIds = appointmentIds;
     }
 }

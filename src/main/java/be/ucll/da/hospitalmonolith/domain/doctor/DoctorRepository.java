@@ -1,6 +1,5 @@
-package be.ucll.da.hospitalmonolith.persistence;
+package be.ucll.da.hospitalmonolith.domain.doctor;
 
-import be.ucll.da.hospitalmonolith.business.Doctor;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DoctorRepository extends CrudRepository<Doctor, Long> {}

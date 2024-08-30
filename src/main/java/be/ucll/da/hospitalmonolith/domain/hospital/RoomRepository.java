@@ -1,6 +1,6 @@
-package be.ucll.da.hospitalmonolith.persistence;
+package be.ucll.da.hospitalmonolith.domain.hospital;
 
-import be.ucll.da.hospitalmonolith.business.Room;
+import be.ucll.da.hospitalmonolith.domain.hospital.Room;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

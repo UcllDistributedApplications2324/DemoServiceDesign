@@ -1,5 +1,8 @@
-package be.ucll.da.hospitalmonolith.business;
+package be.ucll.da.hospitalmonolith.domain.appointment;
 
+import be.ucll.da.hospitalmonolith.domain.doctor.Doctor;
+import be.ucll.da.hospitalmonolith.domain.hospital.Room;
+import be.ucll.da.hospitalmonolith.domain.patient.Patient;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -18,16 +21,13 @@ public class Appointment {
 
     private LocalDateTime scheduledTime;
 
-    @ManyToOne
-    private Room room;
+    private Long roomId;
 
-    @ManyToOne
-    private Doctor doctor;
+    private Long doctor;
 
-    @ManyToOne
-    private Patient patient;
+    private Long patient;
 
-    @OneToOne
+    @Embedded
     private Account account;
 
     public Long getId() {
@@ -62,27 +62,27 @@ public class Appointment {
         this.scheduledTime = scheduledTime;
     }
 
-    public Room getRoom() {
-        return room;
+    public Long getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
     }
 
-    public Doctor getDoctor() {
+    public Long getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(Long doctor) {
         this.doctor = doctor;
     }
 
-    public Patient getPatient() {
+    public Long getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(Long patient) {
         this.patient = patient;
     }
 
