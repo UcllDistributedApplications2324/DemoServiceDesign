@@ -4,6 +4,7 @@ import be.ucll.da.hospitalmonolith.domain.doctor.Doctor;
 import be.ucll.da.hospitalmonolith.domain.hospital.Hospital;
 import be.ucll.da.hospitalmonolith.domain.hospital.HospitalRepository;
 import be.ucll.da.hospitalmonolith.domain.hospital.Room;
+import be.ucll.da.hospitalmonolith.domain.hospital.RoomManagementService;
 import be.ucll.da.hospitalmonolith.domain.patient.Patient;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class HospitalController {
 
     @Autowired
     private HospitalRepository hospitalRepository;
+
+    @Autowired
+    private RoomManagementService roomManagementService;
 
     @PostMapping
     public Hospital createHospital(@RequestBody Hospital hospital) {
@@ -49,7 +53,6 @@ public class HospitalController {
             @PathVariable Long id,
             @RequestBody Room room) {
 
-        Hospital hospital = hospitalRepository.findById(id).orElseThrow(() -> new RuntimeException("Not found"));
-        hospital.addRoom(room);
+        roomManagementService.addRoomToHospital(id);
     }
 }
