@@ -1,6 +1,7 @@
 package be.ucll.da.hospitalmonolith.business;
 
 import be.ucll.da.hospitalmonolith.persistence.DoctorRepository;
+import be.ucll.da.hospitalmonolith.persistence.HospitalRepository;
 import be.ucll.da.hospitalmonolith.persistence.RoomRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,21 +11,21 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class RoomService {
 
+    private HospitalRepository hospitalRepository;
     private RoomRepository roomRepository;
-    private DoctorRepository doctorRepository;
     private MailService mailService;
 
     @Autowired
-    public RoomService(RoomRepository roomRepository, DoctorRepository doctorRepository, MailService mailService) {
+    public RoomService(HospitalRepository hospitalRepository, RoomRepository roomRepository, MailService mailService) {
+        this.hospitalRepository = hospitalRepository;
         this.roomRepository = roomRepository;
-        this.doctorRepository = doctorRepository;
         this.mailService = mailService;
     }
 
     public void createNewRoom(Long hospitalId) {
         roomRepository.createNewRoom(hospitalId); // bypasses domain logic
 
-        for (Doctor doctor : doctorRepository.findAll()) {
+        for (Doctor doctor : hospitalRepository.findById(hospitalId).orElseThrow().getDoctors()) {
             mailService.sendMail(doctor.getEmail(), "New room to work in!", "...");
         }
     }
