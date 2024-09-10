@@ -84,4 +84,8 @@ public class Doctor {
     public String getName() {
         return getFirstName() + " " + getLastName();
     }
+
+    public String getEmail() {
+        return getFirstName().toLowerCase() + "." + getLastName().toLowerCase() + "@.hospital.com";
+    }
 }
