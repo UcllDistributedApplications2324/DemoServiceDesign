@@ -1,4 +1,4 @@
-package be.ucll.da.hospitalmonolith.business;
+package be.ucll.da.hospitalmonolith.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

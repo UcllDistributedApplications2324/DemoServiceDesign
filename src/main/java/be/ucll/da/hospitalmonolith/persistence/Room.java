@@ -1,4 +1,4 @@
-package be.ucll.da.hospitalmonolith.business;
+package be.ucll.da.hospitalmonolith.persistence;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

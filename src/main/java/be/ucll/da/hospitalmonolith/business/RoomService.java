@@ -1,6 +1,6 @@
 package be.ucll.da.hospitalmonolith.business;
 
-import be.ucll.da.hospitalmonolith.persistence.DoctorRepository;
+import be.ucll.da.hospitalmonolith.persistence.Doctor;
 import be.ucll.da.hospitalmonolith.persistence.HospitalRepository;
 import be.ucll.da.hospitalmonolith.persistence.RoomRepository;
 import jakarta.transaction.Transactional;

@@ -1,6 +1,7 @@
 package be.ucll.da.hospitalmonolith.business;
 
 import be.ucll.da.hospitalmonolith.persistence.AddressRepository;
+import be.ucll.da.hospitalmonolith.persistence.Doctor;
 import be.ucll.da.hospitalmonolith.persistence.DoctorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

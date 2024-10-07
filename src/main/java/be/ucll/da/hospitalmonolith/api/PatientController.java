@@ -1,8 +1,6 @@
 package be.ucll.da.hospitalmonolith.api;
 
-import be.ucll.da.hospitalmonolith.business.Doctor;
-import be.ucll.da.hospitalmonolith.business.DoctorService;
-import be.ucll.da.hospitalmonolith.business.Patient;
+import be.ucll.da.hospitalmonolith.persistence.Patient;
 import be.ucll.da.hospitalmonolith.business.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
